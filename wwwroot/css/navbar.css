@@ -1,0 +1,64 @@
+
+/*
+ 解析度調整請參考 
+ http://screensiz.es/phone
+ https://goo.gl/nBS1N2
+ https://goo.gl/qpygzC
+*/
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+
+@media only screen and (min-width: 991px) {
+    .navbar-brand {
+        max-width: 20%;
+    }
+    .navbar li a {
+        font-size: 18px
+    }
+    .navbar li {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+    .navbar-brand {
+        max-width: 40%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-brand {
+        max-width: 50%;
+    }
+    .navbar-nav {
+        top: 100px;
+        padding-top: 18px;
+        bottom: 0;
+        z-index: 400;
+        left: 0;
+        overflow-y: auto;
+    }
+}
+
+.navbar-brand>img {
+    width: 100%;
+}
+
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item:hover  .nav-link,
+.navbar-nav li a:hover {
+    background-color: transparent;
+    color: #2dca98;
+}
+
+
+/* navbar 漸漸上縮特效 */
+
+.top-nav-collapse {
+    background-color: rgb(255, 227, 10, .8);
+    transition: all 1s ease-in-out;
+}

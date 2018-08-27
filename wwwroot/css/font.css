@@ -1,0 +1,16 @@
+/*
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+ */
+
+@font-face {
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../../fonts/NotoSans/NotoSansTC-Regular.woff2) format('woff2'), 
+         url(../../fonts/NotoSans/NotoSansTC-Regular.woff) format('woff'), 
+         url(../../fonts/NotoSans/NotoSansTC-Regular.otf) format('opentype');
+}
+
+* {
+	font-family: 'Noto Sans TC';
+}

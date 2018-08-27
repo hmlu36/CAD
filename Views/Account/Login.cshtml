@@ -1,0 +1,109 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>EUPA</title>
+
+    <link rel="stylesheet" href="~/css/loginBundle.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h3><strong><font color="#FF0000">EPUA</font>後台管理系統</strong><br /></h3>
+            <strong><font color="#FF0000">EPUA</font>Backend Management System</strong><br />
+        </div>
+        <div class="form-signin">
+            @Html.AntiForgeryToken()
+            <div class='validation-summary-errors'><ul /></div>
+            <div>
+                <div class="wrap-input100">
+                    <input class="input100 form-control form-control-sm" v-model="model.Account" placeholder="帳號">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 d-inline-flex">
+                    <input type="password" class="input100 form-control form-control-sm" v-if="!showPassword" v-model="model.Password" placeholder="密碼">
+                    <input type="text" class="input100 form-control form-control-sm" v-if="showPassword" v-model="model.Password" placeholder="密碼">
+                    <span class="focus-input100"></span>
+                    <span class="d-flex flex-wrap align-content-center">
+                        <a href="#" v-on:click="showHidePassword" style="color:gray">
+                            <i class="fa fa-eye" v-if="!showPassword"></i>
+                            <i class="fa fa-eye-slash" v-if="showPassword"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <!--
+                    <a href="/Account/ForgotPassword">忘記密碼</a>
+            -->
+            <div class="container-login100-form-btn m-t-32">
+                <input type="button" class="btn btn-warning login100-form-btn" value="登入" v-on:click="login" />
+            </div>
+        </div>
+    </div>
+    <!-- 頁尾 -->
+    <partial name="_Footer" />
+
+    <script src="~/js/loginBundle.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+    var vm =
+        new Vue({
+            el: '.container',
+            data: {
+                errors: [],
+                model: {},
+                showPassword: false
+            },
+            mounted: function () {
+                window.addEventListener('keypress', function (event) {
+                    if (event.key == "Enter") {
+                        vm.login();
+                    }
+                });
+            },
+            methods: {
+                login: function () {
+                    this.model.__RequestVerificationToken = $('[name=__RequestVerificationToken]').val();
+                    $.ajax({
+                        url: '/Account/Login',
+                        type: "POST",
+                        dataType: 'json',
+                        data: this.model,
+                        beforeSend: function () {
+                            blockUI();
+                        },
+                        success: function (data) {
+                            if (!data.Success) {
+                                $(".validation-summary-errors ul li").remove();
+                                $.each(data.Message, function (index, item) {
+                                    $(".validation-summary-errors ul").append($("<li>").text(item));
+                                });
+                            } else {
+                                location.href = data.Link;
+                            }
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            errorModal(xhr.responseText);
+                        },
+                        complete: function () {
+                            $.unblockUI();
+                        }
+                    });
+                },
+                showHidePassword: function () {
+                    this.showPassword = !this.showPassword;
+                }
+            },
+            created() {
+                this.model.Account = "user";
+                this.model.Password = "123456";
+            }
+        });
+</script>

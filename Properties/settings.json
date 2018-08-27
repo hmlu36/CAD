@@ -1,0 +1,13 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=LocalDb.db;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "MyWebsite": "Trace",
+      "System": "Error",
+      "Microsoft": "Error"
+    }
+  }
+}

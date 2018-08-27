@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+
+<!--
+    參考
+    https://docs.microsoft.com/zh-tw/aspnet/core/mvc/views/layout?view=aspnetcore-2.1
+-->
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EUPA - @ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/backendBundle.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-yellow">
+        <a class="navbar-brand" href="/Backend/Index">
+            <!-- test-->
+            <img src="~/images/EUPA logo.png" class="d-inline-block align-top img-responsive" alt="" /></img>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            @if (User.Identity.IsAuthenticated) {
+                <ul class="navbar-nav mr-auto align-items-end">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">權限控管</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="~/Identity/UserList">使用者管理</a>
+                            <a class="dropdown-item" href="~/Identity/RoleList">角色管理</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">商品設定</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="~/Product/CarouselList">輪播圖管理</a>
+                            <a class="dropdown-item" href="~/Product/PostList">商品管理</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Account/ChangePassword" title="變更密碼">變更密碼</a>
+                    </li>
+                </ul>
+            }
+
+            <partial name="_LoginPartial" />
+        </div>
+    </nav>
+
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <!-- 頁尾 -->
+    <partial name="_Footer" />
+
+</body>
+</html>

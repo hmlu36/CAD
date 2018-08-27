@@ -1,0 +1,26 @@
+﻿@{   
+    ViewBag.Title = "未授權";
+}
+
+<br/>
+<br />
+<h3 style="color:red;">Error 401 : Unauthorised Request</h3>
+<h4 style="color:red;">401 - 未經授權：因為認證無效而拒絕存取 </h4>
+
+<br />
+<h5>
+    You do not have permission to access the requested resource due to security restrictions.
+    In order to gain access, please speak to your system administrator.
+</h5>
+<h5>
+    您角色沒有權限檢視此目錄或網頁，若需檢視此頁面請洽系統管理員。
+</h5>
+
+<script type="text/javascript">
+    $(function () {
+        // 2秒後自動導回首頁
+        setTimeout(function () {
+            window.location.href = "/Home/Index";
+        }, 2000); 
+    });
+</script>

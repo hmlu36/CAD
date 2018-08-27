@@ -1,0 +1,19 @@
+﻿@model Dotnet.Models.Web.ErrorViewModel
+@{
+    Layout = null;
+}
+
+
+@if (Model.ShowRequestId) {
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<h4 class="text-danger">Error.</h4>
+<h4 class="text-danger">An error occurred while processing your request.</h4>
+
+<h5 style="color:red;">
+    系統出錯，請洽系統管理員。
+</h5>
+

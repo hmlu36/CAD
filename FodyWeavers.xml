@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Weavers>
+  <!--
+    使用Fody ToString 可直接在Entity class直接加[ToString]  
+    參考：
+    https://github.com/Fody/ToString
+    Install :
+    dotnet add package ToString.Fody
+    update :
+    dotnet add package Fody 
+  -->
+  <ToString/>
+  <!--
+    使用Fody Fielder Entity可以不用寫 { get; set; } 
+    https://github.com/Fody/Fielder
+    Install :
+    dotnet add package Fielder.Fody 
+    update :
+    dotnet add package Fody 
+  -->
+  <Fielder/>
+  <!--
+    使用Fody Anotar 可以不用寫 static ILog logger = LogManager.GetLogger(typeof(MyClass));
+    https://github.com/Fody/Anotar
+    Install :
+    dotnet add package Anotar.Log4Net.Fody
+    update :
+    dotnet add package Fody 
+  -->
+  <Anotar.Log4Net/>
+</Weavers>

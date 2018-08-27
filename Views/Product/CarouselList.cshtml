@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "輪播圖管理";
+}
+
+<div class="container">
+    <br /><h4>輪播圖管理</h4><br />
+
+    <section class="well">
+        <div class="form-group row">
+            <label class="col-lg-2">顯示</label>
+            <div class="col-lg-2">
+                <v-select v-model="model.Status" :options="yesNo" :blank="true" />
+            </div>
+
+            <div class="col-lg-offset-6">
+                <button type="button" class="btn btn-primary" v-on:click="getData();">查詢</button>
+            </div>
+        </div>
+    </section>
+    <div>
+        <input type="button" class="btn btn-warning" value="新增輪播圖" onclick="location.href='/Product/CarouselCreate'" />
+    </div>
+    <datatable :columns="columns" :data="rows"></datatable>
+    <datatable-pager v-model="page" type="abbreviated" class="d-flex justify-content-center"></datatable-pager>
+</div>
+<script src="~/js/backendBundle.js"></script>
+
+
+<script type="text/javascript">
+    
+    @await Component.InvokeAsync("EnumsToJavaScript")
+
+var vm =
+    new Vue({
+        el: '.container',
+        data: {
+            columns: [
+                {
+                    label: "操作", interpolate: true, align: "center", sortable: false,
+                    representedAs: function (row) {
+                        return editDeleteButton("/Product/CarouselEdit/", "/Product/CarouselDelete/", row.Id);
+                    }
+                },
+                {
+                    label: "類型", interpolate: true,
+                    representedAs: function (row) { 
+                        return ddlDescription(YesNo, row.Status);
+                    }
+                },
+                { label: "檔名", field: "Path" },
+                { label: "說明", field: "Description" }
+            ],
+            rows: [],
+            model: {},
+            page: 1,
+            yesNo: YesNo
+        },
+        mounted: function () {
+            window.addEventListener('keypress', function (event) {
+                if (event.key == "Enter") {
+                    vm.getData();
+                }
+            });
+        },
+        methods: {
+            getData() {
+                blockUI();
+
+                axios.get('/Product/CarouselGrid', {
+                    params: this.model
+                })
+                .then(response => {
+                    //alert(JSON.stringify(response.data));
+                    this.rows = response.data;
+                    $.unblockUI();
+                });
+            }
+        },
+        created() {
+            this.getData();
+        }
+    });
+</script>
