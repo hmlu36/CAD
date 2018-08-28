@@ -2,10 +2,19 @@
     using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" })) {
         @Html.AntiForgeryToken()
         <ul class="nav navbar-nav container-fluid">
-            <li>
-                <a href="/Account/ChangePassword" title="變更密碼">@User.Identity.Name</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">權限控管</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="~/Identity/UserList">使用者管理</a>
+                    <a class="dropdown-item" href="~/Identity/RoleList">角色管理</a>
+                </div>
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()" onclick="logout()">登出</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Account/ChangePassword" title="變更密碼">@User.Identity.Name</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()" onclick="logout()">登出</a>
+            </li>
         </ul>
 
         <script type="text/javascript">

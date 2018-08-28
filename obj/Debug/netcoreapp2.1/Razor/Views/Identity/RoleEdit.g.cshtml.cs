@@ -92,7 +92,7 @@ using System.Security.Claims;
 ");
             EndContext();
             BeginContext(844, 45, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca16eae81e204141a4bc511af772ab58", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "430da9f7f2b448ee989696f083048c68", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -112,7 +112,7 @@ using System.Security.Claims;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(893, 372, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9ad808598f4543d0888c5b3eed8f0e11", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "88f90f8cf5224a0b8df0841b377297b1", async() => {
                 BeginContext(924, 82, true);
                 WriteLiteral("\r\n\r\n    new Vue({\r\n        el: \'.container\',\r\n        data: {\r\n            model: ");
                 EndContext();

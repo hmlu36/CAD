@@ -84,7 +84,7 @@ namespace CAD {
 
             js.Add("lib/jquery/jquery.min.js");
             js.Add("lib/jquery/blockui/jquery.blockUI.js");
-            js.Add("lib/bootstrap/bootstrap.min.js");
+            js.Add("lib/bootstrap/bootstrap.bundle.min.js");
             js.Add("lib/vue/vue.min.js");
             js.Add("lib/vue/axios/axios.min.js");
 

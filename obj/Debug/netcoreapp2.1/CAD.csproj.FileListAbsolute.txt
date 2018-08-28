@@ -28,12 +28,6 @@ D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Identity\RoleList
 D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Identity\UserCreate.g.cshtml.cs
 D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Identity\UserEdit.g.cshtml.cs
 D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Identity\UserList.g.cshtml.cs
-D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Product\CarouselCreate.g.cshtml.cs
-D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Product\CarouselEdit.g.cshtml.cs
-D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Product\CarouselList.g.cshtml.cs
-D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Product\PostCreate.g.cshtml.cs
-D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Product\PostEdit.g.cshtml.cs
-D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Product\PostList.g.cshtml.cs
 D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Footer.g.cshtml.cs
 D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
@@ -43,3 +37,9 @@ D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.csht
 D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\CAD.RazorTargetAssemblyInfo.cs
 D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\CAD.Views.pdb
 D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\CAD.csproj.CopyComplete
+D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Setting\CategoryCreate.g.cshtml.cs
+D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Setting\CategoryEdit.g.cshtml.cs
+D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Setting\CategoryList.g.cshtml.cs
+D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Setting\PostCreate.g.cshtml.cs
+D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Setting\PostEdit.g.cshtml.cs
+D:\svnbox\google drive\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Setting\PostList.g.cshtml.cs

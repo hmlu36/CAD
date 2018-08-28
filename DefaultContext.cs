@@ -1,4 +1,5 @@
-﻿using Dotnet.Models.Enum;
+﻿using CAD.Models.Setting;
+using Dotnet.Models.Enum;
 using Dotnet.Models.Generic;
 using Dotnet.Models.Identity;
 using Dotnet.Utils.Common;
@@ -22,6 +23,8 @@ namespace CAD {
         public DbSet<Role> Roles;
         public DbSet<User> Users;
         public DbSet<UserRole> UserRoles;
+
+        public DbSet<Category> Categorys;
 
         // 取得登入者資訊
         public string GetLoginUser() {

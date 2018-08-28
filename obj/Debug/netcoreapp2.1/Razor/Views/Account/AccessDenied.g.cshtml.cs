@@ -80,7 +80,7 @@ using System.Security.Claims;
 ");
             EndContext();
             BeginContext(413, 199, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "063518b43d0e4b1e8f72702fd7f66fca", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d31b6d4a8e174c9c8f7d017636e17078", async() => {
                 BeginContext(444, 159, true);
                 WriteLiteral("\r\n    $(function () {\r\n        // 2秒後自動導回首頁\r\n        setTimeout(function () {\r\n            window.location.href = \"/Home/Index\";\r\n        }, 2000); \r\n    });\r\n");
                 EndContext();
