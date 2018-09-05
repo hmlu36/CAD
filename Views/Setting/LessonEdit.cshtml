@@ -47,7 +47,7 @@
                         <td class="col-6">
                             <input type="file" class="filestyle" v-on:change="fileChange($event, index)" v-bind:data-placeholder="row.Path" />
                             <img v-bind:src="'/images/Lesson/' + row.Path" v-if="!previewImage[index] && !!row.Path" class="w-25" />
-                            <span v-show="!!previewImage[index]">
+                            <span v-else>
                                 <img v-bind:src="previewImage[index]" class="w-25" />
                             </span>
                         </td>
@@ -80,9 +80,14 @@ var vm =
         },
         watch: {
             rows: function () {
-                $('.filestyle').filestyle('clear');
-                $('.filestyle').filestyle('destroy');
-                $('.filestyle').filestyle();
+                // 處理filestyle, 新增列後再驅動timer
+                setTimeout(function () {
+                    $('.filestyle').each(function () {
+                        if (!$(this).attr("id")) { 
+                            $(this).filestyle();
+                        }   
+                    });
+                }, 0);
             }
         },
         methods: {
@@ -100,7 +105,7 @@ var vm =
                     } else { 
                         vm.previewImage[index] = file;
                     }
-                    vm.model.Path = files[0].name;
+                    vm.rows[index].Path = files[0].name;
                 });
             },
             save() {
@@ -119,8 +124,8 @@ var vm =
                     this.$delete(this.rows, this.rows.indexOf(selectedRow));
 
                     // 重置序號
-                    this.rows.forEach(function (row, index) {
-                        row.Seq = index + 1;
+                    this.rows.forEach(function (row, idx) {
+                        row.Seq = idx + 1;
                     });
                 }
             }
