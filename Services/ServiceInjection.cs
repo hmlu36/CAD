@@ -1,5 +1,4 @@
 ﻿using CAD.Models.Setting;
-using Dotnet.Models.Identity;
 using Dotnet.Services.Generic;
 using Dotnet.Services.Identity;
 using Dotnet.Utils.Enum;
@@ -40,13 +39,8 @@ namespace Dotnet.Services {
             });
 
             // Add all other services here.
-            services.AddScoped<IGenericService<User>, UserService> ();
-            services.AddScoped<IGenericService<Role>, RoleService> ();
-            services.AddScoped<IUserManager, UserManager>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-
-            services.AddScoped<IGenericService<Category>, CategoryService>();
+            services.AddScoped<IGenericService<Lesson>, LessonService>();
 
             // Enum
             services.AddSingleton<IEnumProvider, EnumProvider>();

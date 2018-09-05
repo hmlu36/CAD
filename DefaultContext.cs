@@ -1,13 +1,11 @@
 ﻿using CAD.Models.Setting;
-using Dotnet.Models.Enum;
 using Dotnet.Models.Generic;
-using Dotnet.Models.Identity;
-using Dotnet.Utils.Common;
+using Dotnet.Utils.Logger;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
-using System.Security.Claims;
 
 namespace CAD {
 
@@ -19,16 +17,13 @@ namespace CAD {
             this.httpContextAccessor = httpContextAccessor;
         }
 
-
-        public DbSet<Role> Roles;
-        public DbSet<User> Users;
-        public DbSet<UserRole> UserRoles;
-
-        public DbSet<Category> Categorys;
+        public DbSet<Lesson> Lessons;
+        public DbSet<TeachingAid> TeachingAids;
 
         // 取得登入者資訊
         public string GetLoginUser() {
-            return httpContextAccessor.HttpContext.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            //return httpContextAccessor.HttpContext.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return "dbo";
         }
 
         /// <summary>
@@ -63,102 +58,21 @@ namespace CAD {
         }
 
 
+        /*
+        /// <summary>
+        /// 印出Entity Framework 的query SQL
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            var loggerFactory = new LoggerFactory();
+            loggerFactory.AddProvider(new EFLoggerProvider());
+            optionsBuilder.UseLoggerFactory(loggerFactory);
+        }
+        */
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.HasDefaultSchema("dbo");
-            /*
-            modelBuilder.Entity<User>()
-                .HasMany(ur => ur.UserRoles)
-                .WithOne(ur => ur.User)
-                .HasForeignKey("UserId")
-                .IsRequired();
-
-            modelBuilder.Entity<Role>()
-                .HasMany<UserRole>()
-                .WithOne(ur => ur.Role)
-                .HasForeignKey("RoleId")
-                .IsRequired();
-
-            modelBuilder.Entity<UserRole>(userrole => {
-                userrole.HasKey(ur => new { ur.UserId, ur.RoleId });
-                userrole.HasOne(ur => ur.Role)
-                    .WithMany(r => r.UserRoles)
-                    .HasForeignKey(ur => ur.RoleId)
-                    .IsRequired();
-                userrole.HasOne(ur => ur.User)
-                    .WithMany(r => r.UserRoles)
-                    .HasForeignKey(ur => ur.UserId)
-                    .IsRequired();
-            });
-            
-            
-            */
-
-            var userRole = new Role {
-                Code = "User",
-                Description = "一般使用者",
-                Id = Guid.NewGuid().ToString(),
-                CreatedUser = "DBO",
-                CreatedTime = DateTime.Now,
-                ModifiedUser = "DBO",
-                ModifiedTime = DateTime.Now
-            };
-            modelBuilder.Entity<Role>().HasData(userRole);
-
-            var adminRole = new Role {
-                Code = "Admin",
-                Description = "系統管理員",
-                Id = Guid.NewGuid().ToString(),
-                CreatedUser = "DBO",
-                CreatedTime = DateTime.Now,
-                ModifiedUser = "DBO",
-                ModifiedTime = DateTime.Now
-            };
-            modelBuilder.Entity<Role>().HasData(adminRole);
-
-
-            string password = "123456";
-            var samUser = new User {
-                Account = "admin",
-                Name = "系統管理員",
-                Id = Guid.NewGuid().ToString(),
-                Password = password,
-                PasswordHash = HashUtils.HashPassword(password),
-                Status = Status.A.ToString(),
-                CreatedUser = "DBO",
-                CreatedTime = DateTime.Now,
-                ModifiedUser = "DBO",
-                ModifiedTime = DateTime.Now
-            };
-            modelBuilder.Entity<User>().HasData(samUser);
-
-            var kevinUser = new User {
-                Account = "user",
-                Name = "測試帳號",
-                Id = Guid.NewGuid().ToString(),
-                Password = password,
-                PasswordHash = HashUtils.HashPassword(password),
-                Status = Status.A.ToString(),
-                CreatedUser = "DBO",
-                CreatedTime = DateTime.Now,
-                ModifiedUser = "DBO",
-                ModifiedTime = DateTime.Now
-            };
-            modelBuilder.Entity<User>().HasData(kevinUser);
-
-
-            UserRole userRole1 = new UserRole {
-                Id = Guid.NewGuid().ToString(),
-                RoleId = userRole.Id,
-                UserId = samUser.Id
-            };
-
-            UserRole userRole2 = new UserRole {
-                Id = Guid.NewGuid().ToString(),
-                RoleId = userRole.Id,
-                UserId = kevinUser.Id
-            };
-            modelBuilder.Entity<UserRole>().HasData(userRole1);
-            modelBuilder.Entity<UserRole>().HasData(userRole2);
         }
     }
 }

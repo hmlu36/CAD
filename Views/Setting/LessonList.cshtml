@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "課程管理";
+}
+
+<div class="container">
+    <br /><h4>課程管理</h4><br />
+
+    <section class="well">
+        <div class="form-group row">
+            <label class="col-lg-2">顯示</label>
+            <div class="col-lg-2">
+                <v-select v-model="model.Status" :options="yesNo" :blank="true" />
+            </div>
+
+            <div class="col-lg-offset-6">
+                <button type="button" class="btn btn-primary" v-on:click="getData();">查詢</button>
+            </div>
+        </div>
+    </section>
+    <div>
+        <input type="button" class="btn btn-warning" value="新增課程" onclick="location.href='/Setting/LessonCreate'" />
+    </div>
+    <datatable :columns="columns" :data="rows"></datatable>
+    <datatable-pager v-model="page" type="abbreviated" class="d-flex justify-content-center"></datatable-pager>
+</div>
+<script src="~/js/bundle.js"></script>
+
+
+<script type="text/javascript">
+    
+    @await Component.InvokeAsync("EnumsToJavaScript")
+
+var vm =
+    new Vue({
+        el: '.container',
+        data: {
+            columns: [
+                {
+                    label: "操作", interpolate: true, align: "center", sortable: false,
+                    representedAs: function (row) {
+                        return editDeleteButton("/Setting/LessonEdit/", "/Setting/LessonDelete/", row.Id);
+                    }
+                },
+                { label: "名稱", field: "Name" },
+                { label: "說明", field: "Description" }
+            ],
+            rows: [],
+            model: {},
+            page: 1,
+            yesNo: YesNo
+        },
+        mounted: function () {
+            window.addEventListener('keypress', function (event) {
+                if (event.key == "Enter") {
+                    vm.getData();
+                }
+            });
+        },
+        methods: {
+            getData() {
+                blockUI();
+
+                axios.get('/Setting/LessonGrid', {
+                    params: this.model
+                })
+                .then(response => {
+                    //alert(JSON.stringify(response.data));
+                    this.rows = response.data;
+                    $.unblockUI();
+                });
+            }
+        },
+        created() {
+            this.getData();
+        }
+    });
+</script>

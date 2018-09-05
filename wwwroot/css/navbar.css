@@ -52,7 +52,7 @@
 .navbar-nav .nav-item:hover  .nav-link,
 .navbar-nav li a:hover {
     background-color: transparent;
-    color: #2dca98;
+    color: purple;
 }
 
 
@@ -61,4 +61,8 @@
 .top-nav-collapse {
     background-color: #5CB0F1;
     transition: all 1s ease-in-out;
+}
+
+.nav-link {
+    color: white;
 }

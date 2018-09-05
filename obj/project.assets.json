@@ -13646,11 +13646,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\svnbox\\google drive\\CAD\\CAD.csproj",
+      "projectUniqueName": "D:\\svnbox\\CAD\\CAD.csproj",
       "projectName": "CAD",
-      "projectPath": "D:\\svnbox\\google drive\\CAD\\CAD.csproj",
+      "projectPath": "D:\\svnbox\\CAD\\CAD.csproj",
       "packagesPath": "C:\\Users\\I00126\\.nuget\\packages\\",
-      "outputPath": "D:\\svnbox\\google drive\\CAD\\obj\\",
+      "outputPath": "D:\\svnbox\\CAD\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

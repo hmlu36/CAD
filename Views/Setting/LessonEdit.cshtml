@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "編輯課程";
+}
+
+<div class="container">
+    <br /><h4>編輯課程</h4>
+    <!-- 畫面驗證訊息 -->
+    <div class='validation-summary-errors'><ul /></div>
+
+    <div class="form-group row">
+        <label class="col-lg-2 text-right">名稱</label>
+        <div class="col-lg-4">
+            <input class="form-control" v-model="model.Name" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-lg-2 text-right">說明</label>
+        <div class="col-lg-4">
+            <textarea class="form-control" v-model="model.Description" rows="3" cols="10"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-12">
+            <button type="button" class="btn btn-warning" v-on:click="addRow">新增明細</button>
+            <table class="table-bordered w-100">
+                <thead>
+                    <tr class="d-flex">
+                        <th class="col-1">操作</th>
+                        <th class="col-1">序號</th>
+                        <th class="col-4">說明</th>
+                        <th class="col-6">圖片</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(row, index) in rows" class="d-flex">
+                        <td class="text-center col-1">
+                            <button type="button" class="btn btn-danger btn-sm" v-on:click="removeRow(row)"><i class='fa fa-remove'></i>刪除</button>
+                        </td>
+                        <td class="text-center col-1" style="vertical-align:middle">
+                            {{index + 1}}
+                            <input type="hidden" v-model="row.Seq" />
+                        </td>
+                        <td class="text-center col-4">
+                            <input v-model="row.Name" class="form-control">
+                        </td>
+                        <td class="col-6">
+                            <input type="file" class="filestyle" v-on:change="fileChange($event, index)" v-bind:data-placeholder="row.Path" />
+                            <img v-bind:src="'/images/Lesson/' + row.Path" v-if="!previewImage[index] && !!row.Path" class="w-25" />
+                            <span v-show="!!previewImage[index]">
+                                <img v-bind:src="previewImage[index]" class="w-25" />
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <input type="button" class="btn btn-primary" value="儲存" v-on:click="save" />
+        <input type="button" class="btn btn-warning" value="上一頁" v-on:click="previousPage" />
+    </div>
+</div>
+
+<script src="~/js/bundle.js"></script>
+
+
+<script type="text/javascript">
+    
+var vm =
+    new Vue({
+        el: '.container',
+        data: {
+            errors: [],
+            model: @Html.Raw(Json.Serialize(Model)),
+            rows: @Html.Raw(Json.Serialize(Model.TeachingAids)),
+            formdata: new FormData(),
+            previewImage: []
+        },
+        watch: {
+            rows: function () {
+                $('.filestyle').filestyle('clear');
+                $('.filestyle').filestyle('destroy');
+                $('.filestyle').filestyle();
+            }
+        },
+        methods: {
+            fileChange: async function (e, index) {
+                var files = e.target.files || e.dataTransfer.files;
+                if (!files.length) {
+                    return;
+                }
+
+                this.formdata.append(files[0].name, files[0]);
+                await uploadFile(files[0]).then(function (file) {
+
+                    if (vm.previewImage[index] === "undefined") {
+                        vm.previewImage.push(file);
+                    } else { 
+                        vm.previewImage[index] = file;
+                    }
+                    vm.model.Path = files[0].name;
+                });
+            },
+            save() {
+                //alert(JSON.stringify(this.model));
+
+                var saveUrl = '/Setting/LessonEdit';
+                ajaxSave(saveUrl, this.model);
+            },
+            addRow() {
+                this.rows.push({ Seq: this.rows.length + 1, Name: "", Path: "" });
+            },
+            removeRow(selectedRow) {
+                if (this.rows.length == 1) {
+                    warningMessage("明細資料至少要有一列");
+                } else {
+                    this.$delete(this.rows, this.rows.indexOf(selectedRow));
+
+                    // 重置序號
+                    this.rows.forEach(function (row, index) {
+                        row.Seq = index + 1;
+                    });
+                }
+            }
+        }
+    })
+
+</script>

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Anotar.Log4Net;
 using CAD;
 using Dotnet.Models.Generic;
 using Dotnet.Utils.Common;
@@ -29,7 +30,6 @@ namespace Dotnet.Repositories.Generic {
         }
 
         public void Insert(T entity) {
-
             dbSet.Add(entity);
             context.SaveChanges();
         }

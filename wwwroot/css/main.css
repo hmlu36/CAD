@@ -1,0 +1,31 @@
+table {
+    border: solid 1px white;
+    border-collapse: collapse;
+    color: white;
+}
+
+table td {
+    padding: 5px;
+    border: solid 1px white;
+    color: #696969;
+    font-family: 'Noto Sans TC';
+    font-style: normal;
+    font-weight: 400;
+}
+
+table th {
+    font-family: 'Noto Sans TC';
+    padding: 6px 5px;
+    background-color: DimGray;
+    border: solid 1px white;
+    text-align: center;
+}
+
+
+.filestyle:lang(en)::after {
+    content: "Select file...";
+}
+
+.filestyle:lang(en)::before {
+    content: "Click me";
+}
