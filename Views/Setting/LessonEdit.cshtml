@@ -8,7 +8,7 @@
     <div class='validation-summary-errors'><ul /></div>
 
     <div class="form-group row">
-        <label class="col-lg-2 text-right">名稱</label>
+        <label class="col-lg-2 text-right"><span style="color: red">＊</span>名稱</label>
         <div class="col-lg-4">
             <input class="form-control" v-model="model.Name" />
         </div>
@@ -29,7 +29,7 @@
                         <th class="col-1">操作</th>
                         <th class="col-1">序號</th>
                         <th class="col-4">說明</th>
-                        <th class="col-6">圖片</th>
+                        <th class="col-6"><span style="color: red">＊</span>圖片</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,11 +42,11 @@
                             <input type="hidden" v-model="row.Seq" />
                         </td>
                         <td class="text-center col-4">
-                            <input v-model="row.Name" class="form-control">
+                            <input v-model="row.Description" class="form-control">
                         </td>
                         <td class="col-6">
-                            <input type="file" class="filestyle" v-on:change="fileChange($event, index)" v-bind:data-placeholder="row.Path" />
-                            <img v-bind:src="'/images/Lesson/' + row.Path" v-if="!previewImage[index] && !!row.Path" class="w-25" />
+                            <input type="file" class="filestyle" v-on:change="fileChange($event, index)" v-bind:data-placeholder="row.FileName" />
+                            <img v-bind:src="'/images/Lesson/' + row.FileName" v-if="!previewImage[index] && !!row.FileName" class="w-25" />
                             <span v-else>
                                 <img v-bind:src="previewImage[index]" class="w-25" />
                             </span>
@@ -67,7 +67,7 @@
 
 
 <script type="text/javascript">
-    
+
 var vm =
     new Vue({
         el: '.container',
@@ -83,9 +83,9 @@ var vm =
                 // 處理filestyle, 新增列後再驅動timer
                 setTimeout(function () {
                     $('.filestyle').each(function () {
-                        if (!$(this).attr("id")) { 
+                        if (!$(this).attr("id")) {
                             $(this).filestyle();
-                        }   
+                        }
                     });
                 }, 0);
             }
@@ -102,33 +102,57 @@ var vm =
 
                     if (vm.previewImage[index] === "undefined") {
                         vm.previewImage.push(file);
-                    } else { 
+                    } else {
                         vm.previewImage[index] = file;
                     }
-                    vm.rows[index].Path = files[0].name;
+                    vm.rows[index].FileName = files[0].name;
                 });
             },
             save() {
-                //alert(JSON.stringify(this.model));
+                //this.model.TeachingAids = this.rows;
+                alert(JSON.stringify(this.model));
+                alert(JSON.stringify(this.rows));
 
-                var saveUrl = '/Setting/LessonEdit';
-                ajaxSave(saveUrl, this.model);
+                ajaxUpload('/Setting/LessonEdit', this.model, '/Setting/UploadImage/Lesson', this.formdata);
             },
             addRow() {
-                this.rows.push({ Seq: this.rows.length + 1, Name: "", Path: "" });
+                this.rows.push({ Seq: this.rows.length + 1, Description: "", FileName: "" });
+                this.previewImage.push('');
+                // console.log("previewImage length:" + this.previewImage.length);
             },
             removeRow(selectedRow) {
                 if (this.rows.length == 1) {
                     warningMessage("明細資料至少要有一列");
                 } else {
-                    this.$delete(this.rows, this.rows.indexOf(selectedRow));
+                    var index = this.rows.indexOf(selectedRow);
+                    console.log(index);
+                    this.$delete(this.rows, index);
+                    //this.rows.splice(index, 1);
 
                     // 重置序號
                     this.rows.forEach(function (row, idx) {
                         row.Seq = idx + 1;
                     });
+
+
+                    this.previewImage.splice(index, 1);
+                    //console.log("previewImage length:" + this.previewImage.length);
+
+                    $(".filestyle").each(function (idx) {
+                        if (idx >= index) {
+                            $(this).filestyle('clear');
+                            if (!!vm.rows[idx] && !!vm.rows[idx].FileName) {
+                                //console.log("idx:" + idx + ", value:" + vm.rows[idx].FileName);
+                                $(this).filestyle('placeholder', vm.rows[idx].FileName);
+                            }
+                        }
+                    });
                 }
             }
+        },
+        created() {
+            rows.Lesson = null;
+            alert(JSON.stringify(rows));
         }
     })
 

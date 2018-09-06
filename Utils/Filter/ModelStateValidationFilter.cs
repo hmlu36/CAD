@@ -23,7 +23,7 @@ namespace Dotnet.Utils.Filter {
         // 為了要轉換成中文語系
         public override void OnActionExecuting(ActionExecutingContext context) {
 
-            LogTo.Debug("ModelStateValidation OnActionExecuting start...");
+            // LogTo.Debug("ModelStateValidation OnActionExecuting start...");
 
             // LogTo.Debug("OnActionExecuted:" + context.HttpContext.Request.Method);
             // 判斷POST或是PUT才做Model Building驗證
@@ -58,7 +58,7 @@ namespace Dotnet.Utils.Filter {
                 }
             }
 
-            LogTo.Debug("ModelStateValidation OnActionExecuting finish...");
+            // LogTo.Debug("ModelStateValidation OnActionExecuting finish...");
         }
     }
 }

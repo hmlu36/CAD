@@ -8,19 +8,20 @@ namespace CAD.Models.Setting {
     [Table("Teaching_Aid")]
     public class TeachingAid : GenericEntity {
 
-        [Required]
-        [MaxLength(20)]
-        [Display(Name = "名稱")]
-        public string Name;
-
         [MaxLength(5)]
         [Display(Name = "序號")]
         public string Seq;
 
-        [MaxLength(30)]
-        [Display(Name = "路徑")]
-        public string Path;
 
+        [MaxLength(20)]
+        [Display(Name = "說明")]
+        public string Description;
+
+        [Required]
+        [MaxLength(30)]
+        [Display(Name = "檔名")]
+        public string FileName;
+        
         public Lesson Lesson;
     }
 }

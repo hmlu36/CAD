@@ -63,6 +63,13 @@ namespace CAD.Migrations
                         .HasColumnName("Created_User")
                         .HasMaxLength(10);
 
+                    b.Property<string>("Description")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(30);
+
                     b.Property<string>("LessonId");
 
                     b.Property<DateTime>("ModifiedTime")
@@ -72,13 +79,6 @@ namespace CAD.Migrations
                         .IsRequired()
                         .HasColumnName("Modified_User")
                         .HasMaxLength(10);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(20);
-
-                    b.Property<string>("Path")
-                        .HasMaxLength(30);
 
                     b.Property<string>("Seq")
                         .HasMaxLength(5);

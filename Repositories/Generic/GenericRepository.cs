@@ -40,8 +40,8 @@ namespace Dotnet.Repositories.Generic {
             // 先用Id取資料再做更新
             var dbEntity = this.FindById(entity.Id);
             if (dbEntity != null) {
-                context.Entry(dbEntity).CurrentValues.SetValues(entity);
                 UpdateChildren(dbEntity, entity);
+                context.Entry(dbEntity).CurrentValues.SetValues(entity);
 
                 context.SaveChanges();
             } else {
@@ -53,9 +53,10 @@ namespace Dotnet.Repositories.Generic {
 
             // 對Children做更新
             // 取得型態為List，並且不為空
-            var properties = dbEntity.GetType().GetProperties().Where(property => typeof(IList).IsAssignableFrom(property.PropertyType) && property.GetValue(dbEntity) != null);
+            var properties = entity.GetType().GetProperties().Where(property => typeof(IList).IsAssignableFrom(property.PropertyType) && property.GetValue(entity) != null);
+            LogTo.Debug("children count:" + properties.Count());
             foreach (var property in properties) {
-                // LogTo.Debug("property type:" + property.PropertyType.Name + ", compare:" + typeof(IList).IsAssignableFrom(property.PropertyType) + ", db value:" + property.GetValue(dbEntity) + ", form value:" + property.GetValue(entity));
+                //LogTo.Debug("property type:" + property.PropertyType.Name + ", compare:" + typeof(IList).IsAssignableFrom(property.PropertyType) + ", db value:" + property.GetValue(dbEntity) + ", form value:" + property.GetValue(entity));
                 var dbChildrenEntrys = (IEnumerable<object>)property.GetValue(dbEntity);
                 var formChildrenEntrys = (IEnumerable<object>)property.GetValue(entity);
 

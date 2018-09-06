@@ -4,7 +4,9 @@ using Dotnet.Services.Generic;
 using Dotnet.Utils.Common;
 using LinqKit;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
+using System.Linq;
 
 namespace CAD.Controllers.Setting {
 
@@ -59,15 +61,16 @@ namespace CAD.Controllers.Setting {
             }
         }
 
-        [HttpGet("LessonCreate")]
-        public IActionResult LessonCreate() {
+        [HttpGet("LessonAdd")]
+        public IActionResult LessonAdd() {
 
-            return View();
+            return View(new Lesson());
         }
 
-        [HttpPost("LessonCreate")]
+        [HttpPost("LessonAdd")]
         [ValidateAntiForgeryToken]
-        public IActionResult LessonCreate([FromForm]Lesson form) {
+        public IActionResult LessonAdd([FromForm]Lesson form) {
+
             LogTo.Debug("form:" + form);
             if (ModelState.IsValid) {
                 lessonService.Insert(form);
@@ -88,11 +91,15 @@ namespace CAD.Controllers.Setting {
         [ValidateAntiForgeryToken]
         public IActionResult LessonEdit([FromForm]Lesson form) {
 
+            form.TeachingAids.ToList().ForEach(teachingAid => LogTo.Debug("TechingAid:" + teachingAid.Description));
+            
             if (ModelState.IsValid) {
                 lessonService.Update(form);
             }
             return Json(CommonUtils.GetJsonResult(ModelState, Url.Action("LessonList")));
         }
 
+        private void FormValidation(ModelStateDictionary ModelState, Lesson form) {
+        }
     }
 }

@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "新增課程";
+}
+
+<div class="container">
+    <br /><h4>新增課程</h4>
+    <!-- 畫面驗證訊息 -->
+    <div class='validation-summary-errors'><ul /></div>
+
+    <div class="form-group row">
+        <label class="col-lg-2 text-right"><span style="color: red">＊</span>名稱</label>
+        <div class="col-lg-4">
+            <input class="form-control" v-model="model.Name" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-lg-2 text-right">說明</label>
+        <div class="col-lg-4">
+            <textarea class="form-control" v-model="model.Description" rows="3" cols="10"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-12">
+            <button type="button" class="btn btn-warning" v-on:click="addRow">新增明細</button>
+            <table class="table-bordered w-100">
+                <thead>
+                    <tr class="d-flex">
+                        <th class="col-1">操作</th>
+                        <th class="col-1">序號</th>
+                        <th class="col-4">說明</th>
+                        <th class="col-6"><span style="color: red">＊</span>圖片</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(row, index) in rows" class="d-flex">
+                        <td class="text-center col-1">
+                            <button type="button" class="btn btn-danger btn-sm" v-on:click="removeRow(row)"><i class='fa fa-remove'></i>刪除</button>
+                        </td>
+                        <td class="text-center col-1" style="vertical-align:middle">
+                            {{index + 1}}
+                            <input type="hidden" v-model="row.Seq" />
+                        </td>
+                        <td class="text-center col-4">
+                            <input v-model="row.Description" class="form-control">
+                        </td>
+                        <td class="col-6">
+                            <input type="file" class="filestyle" v-on:change="fileChange($event, index)" v-bind:data-placeholder="row.FileName" />
+                            <img v-bind:src="'/images/Lesson/' + row.FileName" v-if="!previewImage[index] && !!row.FileName" class="w-25" />
+                            <span v-else>
+                                <img v-bind:src="previewImage[index]" class="w-25" />
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <input type="button" class="btn btn-primary" value="儲存" v-on:click="save" />
+        <input type="button" class="btn btn-warning" value="上一頁" v-on:click="previousPage" />
+    </div>
+</div>
+
+<script src="~/js/bundle.js"></script>
+
+
+<script type="text/javascript">
+    
+var vm =
+    new Vue({
+        el: '.container',
+        data: {
+            errors: [],
+            model: {},
+            rows: [],
+            formdata: new FormData(),
+            previewImage: []
+        },
+        watch: {
+            rows: function () {
+                // 處理filestyle, 新增列後再驅動timer
+                setTimeout(function () {
+                    $('.filestyle').each(function () {
+                        if (!$(this).attr("id")) {
+                            $(this).filestyle();
+                        }
+                    });
+                }, 0);
+            }
+        },
+        methods: {
+            fileChange: async function (e, index) {
+                var files = e.target.files || e.dataTransfer.files;
+                if (!files.length) {
+                    return;
+                }
+
+                this.formdata.append(files[0].name, files[0]);
+                await uploadFile(files[0]).then(function (file) {
+
+                    if (vm.previewImage[index] === "undefined") {
+                        vm.previewImage.push(file);
+                    } else {
+                        vm.previewImage[index] = file;
+                    }
+                    vm.rows[index].FileName = files[0].name;
+                });
+            },
+            save() {
+                this.model.TeachingAids = this.rows;
+                alert(JSON.stringify(this.model));
+
+                ajaxUpload('/Setting/LessonAdd', this.model, '/Setting/UploadImage/Lesson', this.formdata);
+            },
+            addRow() {
+                this.rows.push({ Seq: this.rows.length + 1, Description: "", FileName: "" });
+                this.previewImage.push('');
+                //console.log("previewImage length:" + this.previewImage.length);
+            },
+            removeRow(selectedRow) {
+                if (this.rows.length == 1) {
+                    warningMessage("明細資料至少要有一列");
+                } else {
+                    var index = this.rows.indexOf(selectedRow);
+                    console.log(index);
+                    this.$delete(this.rows, index);
+                    //this.rows.splice(index, 1);
+
+                    // 重置序號
+                    this.rows.forEach(function (row, idx) {
+                        row.Seq = idx + 1;
+                    });
+
+
+                    this.previewImage.splice(index, 1);
+                    //console.log("previewImage length:" + this.previewImage.length);
+
+                    $(".filestyle").each(function (idx) {
+                        if (idx >= index) {
+                            $(this).filestyle('clear');
+                            if (!!vm.rows[idx] && !!vm.rows[idx].FileName) {
+                                //console.log("idx:" + idx + ", value:" + vm.rows[idx].FileName);
+                                $(this).filestyle('placeholder', vm.rows[idx].FileName);
+                            }
+                        }
+                    });
+                }
+            }
+        },
+        created() {
+            this.addRow();
+        }
+    })
+
+</script>

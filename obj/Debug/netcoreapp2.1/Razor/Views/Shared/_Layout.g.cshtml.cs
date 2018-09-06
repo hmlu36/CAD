@@ -70,7 +70,7 @@ using System.Security.Claims;
             WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n\r\n<!--\r\n    參考\r\n    https://docs.microsoft.com/zh-tw/aspnet/core/mvc/views/layout?view=aspnetcore-2.1\r\n-->\r\n\r\n");
             EndContext();
             BeginContext(135, 287, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5ecd2187bd164416ac4a3ecc632e10d0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c2060e32cf6a40e9938fa5f9c0e63878", async() => {
                 BeginContext(141, 195, true);
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>CAD - ");
                 EndContext();
@@ -85,7 +85,7 @@ using System.Security.Claims;
                 WriteLiteral("</title>\r\n    ");
                 EndContext();
                 BeginContext(364, 49, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ce5e5f347ddb4821b4c282ec17015693", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e5cd3f7f945b4362b408abc5ff8502b9", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -121,7 +121,7 @@ using System.Security.Claims;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(424, 1371, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a83f6acc157d4f9d812398c38ae9a37c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "22494c80ec1d4b1aba941c8574cda9cb", async() => {
                 BeginContext(430, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
@@ -136,7 +136,7 @@ Write(Html.AntiForgeryToken());
                 WriteLiteral("\r\n    <nav class=\"navbar navbar-expand-lg\" style=\"background-color:#5CB0F1\">\r\n        <a class=\"navbar-brand\" href=\"/\">\r\n            <!-- test-->\r\n            ");
                 EndContext();
                 BeginContext(619, 86, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "210e05e67b624034bf30f997d796773d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "52ca50a253ae49a0b95d8b89a1d1baab", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -166,7 +166,7 @@ Write(Html.AntiForgeryToken());
                         ");
                 EndContext();
                 BeginContext(1459, 61, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "804f14f9a1fc4ec6b40a497eced91a54", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a9e1dd511c66417aac5ebef988c0f972", async() => {
                     BeginContext(1512, 4, true);
                     WriteLiteral("課程管理");
                     EndContext();
@@ -198,7 +198,7 @@ Write(Html.AntiForgeryToken());
                 WriteLiteral("\r\n    </div>\r\n\r\n    <br />\r\n    <br />\r\n    <br />\r\n    <!-- 頁尾 -->\r\n    ");
                 EndContext();
                 BeginContext(1758, 26, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "912748f4a5994004a2373632257efd7d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d56ae2e48002409b9209e5d517a5c82c", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

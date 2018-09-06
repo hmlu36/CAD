@@ -18,6 +18,6 @@ namespace CAD.Models.Setting {
         [Display(Name = "說明")]
         public string Description;
 
-        public ICollection<TeachingAid> TeachingAids;
+        public List<TeachingAid> TeachingAids;
     }
 }
