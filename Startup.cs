@@ -72,8 +72,6 @@ namespace CAD {
             js.Add("lib/bootstrap/bootstrap.bundle.min.js");
             js.Add("lib/vue/vue.min.js");
             js.Add("lib/vue/axios/axios.min.js");
-            js.Add("lib/jquery/download/download.min.js");
-            js.Add("lib/jquery/moment/moment.min.js");
             js.Add("lib/bootstrap/sweetalert2/sweetalert2.min.js");
             js.Add("lib/bootstrap/bootstrap-select/bootstrap-select.js");
             js.Add("lib/bootstrap/bootstrap-filestyle/bootstrap-filestyle.min.js");

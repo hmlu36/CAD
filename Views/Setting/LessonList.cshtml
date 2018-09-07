@@ -38,7 +38,7 @@ var vm =
                 {
                     label: "操作", interpolate: true, align: "center", sortable: false,
                     representedAs: function (row) {
-                        return editDeleteButton("/Setting/LessonEdit/", "/Setting/LessonDelete/", row.Id);
+                        return editDeleteButton("/Setting/LessonEdit/", "/Setting/LessonDelete/", row.Id) + projectButton("/Setting/LessonProject/", row.Id);
                     }
                 },
                 { label: "名稱", field: "Name" },

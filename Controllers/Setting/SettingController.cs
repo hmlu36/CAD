@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Linq;
+using System.Text;
 
 namespace CAD.Controllers.Setting {
 
@@ -99,7 +100,12 @@ namespace CAD.Controllers.Setting {
             return Json(CommonUtils.GetJsonResult(ModelState, Url.Action("LessonList")));
         }
 
-        private void FormValidation(ModelStateDictionary ModelState, Lesson form) {
+
+        [HttpGet("LessonProject/{id}")]
+        public IActionResult LessonProject(string id) {
+            var lesson = lessonService.GetById(id);
+            return View(lesson);
         }
+        
     }
 }

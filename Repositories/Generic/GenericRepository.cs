@@ -40,8 +40,8 @@ namespace Dotnet.Repositories.Generic {
             // 先用Id取資料再做更新
             var dbEntity = this.FindById(entity.Id);
             if (dbEntity != null) {
-                UpdateChildren(dbEntity, entity);
                 context.Entry(dbEntity).CurrentValues.SetValues(entity);
+                UpdateChildren(dbEntity, entity);
 
                 context.SaveChanges();
             } else {
@@ -53,8 +53,7 @@ namespace Dotnet.Repositories.Generic {
 
             // 對Children做更新
             // 取得型態為List，並且不為空
-            var properties = entity.GetType().GetProperties().Where(property => typeof(IList).IsAssignableFrom(property.PropertyType) && property.GetValue(entity) != null);
-            LogTo.Debug("children count:" + properties.Count());
+            var properties = dbEntity.GetType().GetProperties().Where(property => typeof(IList).IsAssignableFrom(property.PropertyType) && property.GetValue(dbEntity) != null);
             foreach (var property in properties) {
                 //LogTo.Debug("property type:" + property.PropertyType.Name + ", compare:" + typeof(IList).IsAssignableFrom(property.PropertyType) + ", db value:" + property.GetValue(dbEntity) + ", form value:" + property.GetValue(entity));
                 var dbChildrenEntrys = (IEnumerable<object>)property.GetValue(dbEntity);
@@ -67,16 +66,18 @@ namespace Dotnet.Repositories.Generic {
                         context.Remove(dbChildrenEntry);
                     }
                 }
-
+                
                 // 新增或更新Children
                 foreach (var childrenEntry in formChildrenEntrys) {
                     if (StringUtils.TrimIsNull(((IEntity)childrenEntry).Id)) {
                         // LogTo.Debug("Children Add");
+                        // 將Parent放入Children中
+                        childrenEntry.GetType().GetProperties().Where(prop => prop.Name.Equals(entity.GetType().Name)).Single().SetValue(childrenEntry, entity);
                         context.Add(childrenEntry);
                     } else {
                         var dbChildrenEntry = dbChildrenEntrys.Where(tempEntry => ((IEntity)tempEntry).Id.Equals(((IEntity)childrenEntry).Id)).FirstOrDefault();
                         if (dbChildrenEntry != null) {
-                            // LogTo.Debug("Children Update");
+                            //LogTo.Debug("Children Update");
                             context.Entry(dbChildrenEntry).CurrentValues.SetValues(childrenEntry);
                         }
                     }

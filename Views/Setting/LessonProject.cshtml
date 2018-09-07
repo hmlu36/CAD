@@ -1,0 +1,91 @@
+﻿@{
+    Layout = null;
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/css/bundle.css" />
+    <style>
+        img {
+            width: 65%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<div class="container">
+    <!--
+    <textarea id="source">
+    class: center, middle
+
+    # 社交故事
+
+    ---
+
+    image11.png
+
+    ---
+
+    image17.png
+    </textarea>
+    -->
+</div>
+<script src="~/js/bundle.js"></script>
+
+
+<script type="text/javascript">
+
+var vm =
+    new Vue({
+        el: '.container',
+        data: {
+            model: @Html.Raw(Json.Serialize(Model))
+        },
+        mounted: function () {
+
+            //var slideshow = remark.create();
+            //alert(JSON.stringify(this.model));
+            
+            var slideshow = remark.create({
+                source: this.composeContent(this.model)
+            });
+            
+        },
+        methods: {
+            composeContent(model) {
+                var content = "class: center, middle\n" +
+                              "# " + model.Name + "\n";
+
+                model.TeachingAids.forEach(function (row) {
+                    //alert(JSON.stringify(row));
+                    content += "\n---\n";
+                    content += "class: center, middle\n";
+                    content += "<img src='/images/Lesson/" + row.FileName + "' onclick='speak(\"" + row.Description + "\")'>";
+                });
+
+                console.log(content);
+                return content;
+            }
+            
+        }
+    });
+
+
+    function speak(message) {
+        if (!!message) { 
+            //console.log(message);
+            var rate = 5;
+            var pitch = 2;
+        
+            var msg = new SpeechSynthesisUtterance();
+            var voices = window.speechSynthesis.getVoices();
+            msg.voice = voices[0];
+            msg.rate = rate / 10;
+            msg.pitch = pitch;
+            msg.text = message;
+
+            speechSynthesis.speak(msg);
+        }
+    }
+</script>

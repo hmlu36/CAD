@@ -21,7 +21,7 @@ namespace CAD.Models.Setting {
         [MaxLength(30)]
         [Display(Name = "檔名")]
         public string FileName;
-        
+
         public Lesson Lesson;
     }
 }

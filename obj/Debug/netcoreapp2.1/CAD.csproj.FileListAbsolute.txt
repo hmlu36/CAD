@@ -74,3 +74,4 @@ D:\svnbox\CAD\obj\Debug\netcoreapp2.1\CAD.csproj.CopyComplete
 D:\svnbox\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Setting\LessonEdit.g.cshtml.cs
 D:\svnbox\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Setting\LessonList.g.cshtml.cs
 D:\svnbox\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Setting\LessonAdd.g.cshtml.cs
+D:\svnbox\CAD\obj\Debug\netcoreapp2.1\Razor\Views\Setting\LessonProject.g.cshtml.cs

@@ -281,6 +281,14 @@ function deleteButton(deletePath, id) {
     return button;
 }
 
+// 放映 button
+function projectButton(editPath, id) {
+    var button = "<button class='btn btn-info btn-sm' onClick=\"location.href='" + editPath + id + "'\"><i class='fa fa-edit'></i>播放</button> ";
+
+    //alert(buttons);
+    return button;
+}
+
 // 列印 button
 // editPath : 列印路徑
 // id : key

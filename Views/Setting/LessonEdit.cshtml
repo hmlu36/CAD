@@ -73,8 +73,8 @@ var vm =
         el: '.container',
         data: {
             errors: [],
-            model: @Html.Raw(Json.Serialize(Model)),
-            rows: @Html.Raw(Json.Serialize(Model.TeachingAids)),
+            model: {},
+            rows: [],
             formdata: new FormData(),
             previewImage: []
         },
@@ -109,9 +109,7 @@ var vm =
                 });
             },
             save() {
-                //this.model.TeachingAids = this.rows;
-                alert(JSON.stringify(this.model));
-                alert(JSON.stringify(this.rows));
+                //alert(JSON.stringify(this.model));
 
                 ajaxUpload('/Setting/LessonEdit', this.model, '/Setting/UploadImage/Lesson', this.formdata);
             },
@@ -125,19 +123,18 @@ var vm =
                     warningMessage("明細資料至少要有一列");
                 } else {
                     var index = this.rows.indexOf(selectedRow);
-                    console.log(index);
+                    //console.log(index);
                     this.$delete(this.rows, index);
-                    //this.rows.splice(index, 1);
 
                     // 重置序號
                     this.rows.forEach(function (row, idx) {
                         row.Seq = idx + 1;
                     });
 
-
                     this.previewImage.splice(index, 1);
                     //console.log("previewImage length:" + this.previewImage.length);
 
+                    // 處理placeholder
                     $(".filestyle").each(function (idx) {
                         if (idx >= index) {
                             $(this).filestyle('clear');
@@ -151,8 +148,19 @@ var vm =
             }
         },
         created() {
-            rows.Lesson = null;
-            alert(JSON.stringify(rows));
+            // 如果在上面初始，畫面上的異動抓不到資料
+            this.model = @Html.Raw(Json.Serialize(Model));
+            this.rows = this.model.TeachingAids;
+
+            // 使用時間延遲放入placeholder
+            setTimeout(function () {
+                console.log($(".bootstrap-filestyle").length);
+
+                vm.rows.forEach(function (row, idx) {
+                    console.log("idx:" + idx + ", name:" + row.FileName);
+                    $(".bootstrap-filestyle :input").attr("placeholder", row.FileName);
+                });
+            }, 100);
         }
     })
 
