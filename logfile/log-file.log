@@ -1436,3 +1436,74 @@ CREATE TABLE "Lesson" (
 2018-09-07 17:51:52,974 [66] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/css/bundle.css'
 2018-09-07 17:51:52,980 [66] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/css/bundle.css'
 2018-09-07 17:51:56,943 [39] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 10:14:40,878 [15] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/css/bundle.css'
+2018-09-10 10:14:41,000 [15] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/js/bundle.js'
+2018-09-10 10:14:41,341 [15] INFO  WebOptimizer.AssetBuilder [(null)] - Generated output and responded to request for '/css/bundle.css'
+2018-09-10 10:14:41,849 [12] INFO  WebOptimizer.AssetBuilder [(null)] - Generated output and responded to request for '/js/bundle.js'
+2018-09-10 10:14:47,043 [13] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 10:18:29,168 [36] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/css/bundle.css'
+2018-09-10 10:18:29,169 [36] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/css/bundle.css'
+2018-09-10 10:18:29,170 [36] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/js/bundle.js'
+2018-09-10 10:18:29,170 [36] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/js/bundle.js'
+2018-09-10 10:18:51,605 [25] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/css/bundle.css'
+2018-09-10 10:18:51,608 [25] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/css/bundle.css'
+2018-09-10 10:18:51,616 [25] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/js/bundle.js'
+2018-09-10 10:18:51,616 [25] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/js/bundle.js'
+2018-09-10 10:19:01,874 [25] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/css/bundle.css'
+2018-09-10 10:19:01,875 [25] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/css/bundle.css'
+2018-09-10 10:19:01,881 [33] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/js/bundle.js'
+2018-09-10 10:19:01,882 [33] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/js/bundle.js'
+2018-09-10 10:19:03,985 [25] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/css/bundle.css'
+2018-09-10 10:19:03,986 [25] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/css/bundle.css'
+2018-09-10 10:19:03,992 [25] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/js/bundle.js'
+2018-09-10 10:19:03,993 [25] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/js/bundle.js'
+2018-09-10 10:19:15,050 [24] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/css/bundle.css'
+2018-09-10 10:19:15,053 [24] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/css/bundle.css'
+2018-09-10 10:19:15,058 [24] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/js/bundle.js'
+2018-09-10 10:19:15,059 [24] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/js/bundle.js'
+2018-09-10 10:19:31,505 [25] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/css/bundle.css'
+2018-09-10 10:19:31,506 [25] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/css/bundle.css'
+2018-09-10 10:19:31,511 [26] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/js/bundle.js'
+2018-09-10 10:19:31,512 [26] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/js/bundle.js'
+2018-09-10 10:19:48,293 [7] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:怎麼打招呼
+2018-09-10 10:19:48,294 [7] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:甚麼時候握手
+2018-09-10 10:19:48,315 [7] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:甚麼時候說多謝
+2018-09-10 10:19:48,315 [7] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:甚麼時候說多謝
+2018-09-10 10:19:48,387 [25] DEBUG Dotnet.Utils.Common.CommonUtils [(null)] - Method: 'String UploadFile(IFormFileCollection, String)'. Line: ~38. save path:D:\svnbox\CAD\wwwroot\images\Lesson, fileName:story20_c_t_ct.pngfile length:17020
+2018-09-10 10:19:50,707 [25] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 10:20:10,663 [19] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 10:20:31,130 [25] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonAdd(Lesson)'. Line: ~75. form:{T: "Lesson", }
+2018-09-10 10:20:31,252 [24] DEBUG Dotnet.Utils.Common.CommonUtils [(null)] - Method: 'String UploadFile(IFormFileCollection, String)'. Line: ~38. save path:D:\svnbox\CAD\wwwroot\images\Lesson, fileName:story13_c_t_ct.pngfile length:22863
+2018-09-10 10:20:33,540 [24] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 10:20:58,173 [7] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:20:58,187 [15] DEBUG Dotnet.Utils.Common.CommonUtils [(null)] - Method: 'String UploadFile(IFormFileCollection, String)'. Line: ~38. save path:D:\svnbox\CAD\wwwroot\images\Lesson, fileName:story14_c_t_ct.pngfile length:17187
+2018-09-10 10:21:00,527 [7] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 10:21:48,357 [42] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:21:48,368 [42] DEBUG Dotnet.Utils.Common.CommonUtils [(null)] - Method: 'String UploadFile(IFormFileCollection, String)'. Line: ~38. save path:D:\svnbox\CAD\wwwroot\images\Lesson, fileName:story14_c_t_ct.pngfile length:17187
+2018-09-10 10:21:50,645 [42] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 10:22:04,340 [42] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:22:04,341 [42] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:22:04,425 [40] DEBUG Dotnet.Utils.Common.CommonUtils [(null)] - Method: 'String UploadFile(IFormFileCollection, String)'. Line: ~38. save path:D:\svnbox\CAD\wwwroot\images\Lesson, fileName:story14_c_t_ct.pngfile length:17187
+2018-09-10 10:22:06,690 [42] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 10:22:19,954 [41] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:22:19,955 [41] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:22:19,957 [41] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:22:20,070 [43] DEBUG Dotnet.Utils.Common.CommonUtils [(null)] - Method: 'String UploadFile(IFormFileCollection, String)'. Line: ~38. save path:D:\svnbox\CAD\wwwroot\images\Lesson, fileName:story11_c_t_ct.pngfile length:20074
+2018-09-10 10:22:22,419 [42] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 10:23:05,165 [43] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:23:05,166 [43] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:23:05,166 [43] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:23:07,493 [49] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 10:25:25,146 [58] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:25:25,146 [58] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:25:25,147 [58] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'IActionResult LessonEdit(String)'. Line: ~95. TechingAid:
+2018-09-10 10:25:25,235 [58] DEBUG Dotnet.Utils.Common.CommonUtils [(null)] - Method: 'String UploadFile(IFormFileCollection, String)'. Line: ~38. save path:D:\svnbox\CAD\wwwroot\images\Lesson, fileName:story6_c_t_ct.pngfile length:17647
+2018-09-10 10:25:27,534 [58] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 17:06:34,113 [42] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/css/bundle.css'
+2018-09-10 17:06:37,195 [3] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 17:06:40,898 [42] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/css/bundle.css'
+2018-09-10 17:06:53,977 [44] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 17:07:03,357 [3] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
+2018-09-10 17:17:50,774 [43] INFO  WebOptimizer.AssetMiddleware [(null)] - Request started for '/js/bundle.js'
+2018-09-10 17:17:50,775 [43] INFO  WebOptimizer.AssetBuilder [(null)] - Responding from memory cache for '/js/bundle.js'
+2018-09-10 17:19:46,393 [39] DEBUG CAD.Controllers.Setting.SettingController [(null)] - Method: 'JsonResult LessonGrid(Lesson)'. Line: ~33. Name:, Description:
